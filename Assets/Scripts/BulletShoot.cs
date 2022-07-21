@@ -5,6 +5,7 @@ public class BulletShoot : MonoBehaviour
     public Transform firePoint;
     public GameObject prefab;
     public float bulletForce = 20f;
+    
 
     public float force;
     public GameObject player;
@@ -14,6 +15,7 @@ public class BulletShoot : MonoBehaviour
     
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
