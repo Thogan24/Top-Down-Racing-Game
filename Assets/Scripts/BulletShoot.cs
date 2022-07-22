@@ -13,7 +13,7 @@ public class BulletShoot : MonoBehaviour
     public Vector2 shootPosition;
     public float recoilForce;
     public Rigidbody2D playerRB;
-    public float time = 0;
+    //public float time = 0;
     public bool recoil = false;
     
     private void Start()
@@ -30,7 +30,7 @@ public class BulletShoot : MonoBehaviour
             Shoot();
             
         }
-        if (recoil)
+        /*if (recoil)
         {
             time += Time.deltaTime;
 
@@ -44,7 +44,7 @@ public class BulletShoot : MonoBehaviour
                 time = 0;
                 recoil = false;
             }
-        }
+        }*/
 
         //if (Input.GetMouseButton(0))
         //{
@@ -66,6 +66,7 @@ public class BulletShoot : MonoBehaviour
         //player.GetComponent<Rigidbody2D>().MovePosition(playerRB.position * -recoilForce);
         vector2 = Vector2.one;
         recoil = true;
-        time = 0;
+        //time = 0;
+        this.gameObject.AddComponent<RecoilScript>();
     }
 }
