@@ -14,17 +14,18 @@ public class RecoilScript : MonoBehaviour
     void Update()
     {
         
-            time += Time.deltaTime;
+        time += Time.deltaTime;
 
-            if (time < 100)
-            {
-                GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce);
-
-            }
-            else
-            {               
-                Destroy(this);
-            }
+        if (time < 1) {
+            GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
+        }
+        else if (time > 1 && time < 2) { 
+            GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * (2 - time) * 5);
+        }
+        else
+        {
+            Destroy(this);
+        }
         
     }
 }
