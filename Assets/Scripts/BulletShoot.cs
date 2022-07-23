@@ -13,8 +13,11 @@ public class BulletShoot : MonoBehaviour
     public Vector2 shootPosition;
     public float recoilForce;
     public Rigidbody2D playerRB;
-    //public float time = 0;
+    
     public bool recoil = false;
+    public bool cooldown = false;
+    public float cooldownTime;
+
     
     private void Start()
     {
@@ -23,33 +26,20 @@ public class BulletShoot : MonoBehaviour
 
     void Update()
     {
-        
-        if (Input.GetMouseButtonDown(0))
+        if (cooldownTime <= 0.1 && cooldown)
         {
-            
-            Shoot();
-            
+            cooldownTime += Time.deltaTime;
         }
-        /*if (recoil)
+        else
         {
-            time += Time.deltaTime;
-
-            if (time < 1)
-            {
-                player.GetComponent<Rigidbody2D>().AddForce(shootPosition * -recoilForce);
-
-            }
-            else
-            {
-                time = 0;
-                recoil = false;
-            }
-        }*/
-
-        //if (Input.GetMouseButton(0))
-        //{
-        //    player.GetComponent<Rigidbody2D>().AddForceAtPosition(firePoint.up * -recoilForce, player.transform.position);
-        //}
+            cooldown = false;
+            cooldownTime = 0;
+        }
+        if (Input.GetMouseButtonDown(0) && cooldown == false)
+        {            
+            Shoot();
+        }
+        
     }
 
     void Shoot()
@@ -58,15 +48,15 @@ public class BulletShoot : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         
-        //vector2.x *= firePoint.position.x;
-        //vector2.y *= firePoint.position.y;
+        
         Debug.Log(vector2);
 
         shootPosition = firePoint.up;
-        //player.GetComponent<Rigidbody2D>().MovePosition(playerRB.position * -recoilForce);
+        
         vector2 = Vector2.one;
         recoil = true;
-        //time = 0;
+        
         this.gameObject.AddComponent<RecoilScript>();
+        cooldown = true;
     }
 }

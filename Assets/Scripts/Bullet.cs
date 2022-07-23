@@ -8,10 +8,12 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-        Destroy(gameObject);
-        
+        if (collision.gameObject.tag != "player")
+        {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 5f);
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
