@@ -14,6 +14,8 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI StatsTextbox;
     
     void Start() {
+        showStats = false;
+        statsCanvas.SetActive(false);
         MovementScript = player.GetComponent<Movement>();
         BulletShootScript = player.GetComponent<BulletShoot>();
     }
