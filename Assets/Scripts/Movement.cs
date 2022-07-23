@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 5f;
+    public float movementSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
+    public float speedTracker;
 
     Vector2 movement;
     Vector2 mousePos;
 
-    // Update is called once per frame
+    public Transform playerTransform;
+    public float lastFrame;
+
+    public void Start()
+    {
+        lastFrame = playerTransform.position.x;
+    }
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -20,10 +27,15 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+        //Debug.Log(lastFrame);
+        //Debug.Log(playerTransform.position.x);
+        speedTracker = (playerTransform.position.x - lastFrame);
+        lastFrame = playerTransform.position.x;
+        Debug.Log(speedTracker);
     }
 }

@@ -47,9 +47,6 @@ public class BulletShoot : MonoBehaviour
         GameObject bullet = Instantiate(prefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        
-        
-        Debug.Log(vector2);
 
         shootPosition = firePoint.up;
         
