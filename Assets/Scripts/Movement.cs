@@ -37,6 +37,6 @@ public class Movement : MonoBehaviour
         //Debug.Log(playerTransform.position.x);
         speedTracker = Mathf.Abs(playerTransform.position.x - lastFrame);
         lastFrame = playerTransform.position.x;
-        Debug.Log(speedTracker);
+        //Debug.Log(speedTracker);
     }
 }

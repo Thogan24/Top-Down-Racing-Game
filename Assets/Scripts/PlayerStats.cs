@@ -41,7 +41,9 @@ public class PlayerStats : MonoBehaviour
         "<br>MovementSpeed: " + MovementScript.movementSpeed.ToString() +
         "<br>Angle: " + MovementScript.angle.ToString("F2") +
         "<br>BulletForce: " + BulletShootScript.bulletForce.ToString() +       
-        "<br>Cooldown: " + BulletShootScript.cooldown.ToString();
+        "<br>Cooldown: " + BulletShootScript.cooldown.ToString() +
+        "<br>Coordinates: <br>" + MovementScript.playerTransform.position.x + ", " + MovementScript.playerTransform.position.y;
+
 
     }
 }
