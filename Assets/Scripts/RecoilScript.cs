@@ -16,11 +16,20 @@ public class RecoilScript : MonoBehaviour
         
         time += Time.deltaTime;
 
-        if (time < 1) {
+        if (time < 0.1)
+        {
             GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
+            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
         }
-        else if (time > 1 && time < 2) { 
+        else if (time > 0.1 && time <= 1)
+        {
+            GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * 5);
+            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * 5);
+        }
+        else if (time > 1 && time < 2)
+        {
             GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * (2 - time) * 5);
+            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
         }
         else
         {

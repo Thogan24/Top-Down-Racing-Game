@@ -17,7 +17,7 @@ public class MinimapScript : MonoBehaviour
 
         Color.RGBToHSV(miniMapBorder.GetComponent<Image>().color, out h, out s, out v);
         miniMapBorder.GetComponent<Image>().color = Color.HSVToRGB(h + Time.deltaTime * .25f, s, v);
-        Debug.Log(h);
+        
 
     }
 }

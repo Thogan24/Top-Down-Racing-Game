@@ -11,17 +11,19 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag != "player" && collision.gameObject.tag != "Bullet")
         {
+            Debug.Log(collision.gameObject.tag);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("Bruh");
+            Debug.Log(collision.gameObject.tag);
             GameObject effect = Instantiate(hitEffectBullet, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
         }
+        Debug.Log("Bruh");
     }
     private void Update()
     {
