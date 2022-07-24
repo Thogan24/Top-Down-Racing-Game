@@ -8,6 +8,12 @@ public class Movement : MonoBehaviour
     public float speedTracker;
     public float angle;
 
+    
+    public GameObject player;
+    float h;
+    float s;
+    float v;
+
     Vector2 movement;
     Vector2 mousePos;
 
@@ -24,6 +30,9 @@ public class Movement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Color.RGBToHSV(player.GetComponent<SpriteRenderer>().color, out h, out s, out v);
+        player.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(h + Time.deltaTime * .25f, s, v);
     }
 
     void FixedUpdate()
