@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
             speedTrackerx = Mathf.Abs(playerTransform.position.x - lastSecondX);
             speedTrackery = Mathf.Abs(playerTransform.position.y - lastSecondY);
             lastSecondX = playerTransform.position.x;
-            lastSecondX = playerTransform.position.y;
+            lastSecondY = playerTransform.position.y;
         }
     }
 }
