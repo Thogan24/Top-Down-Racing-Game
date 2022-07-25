@@ -5,7 +5,8 @@ public class Movement : MonoBehaviour
     public float movementSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
-    public float speedTracker;
+    public float speedTrackerx;
+    public float speedTrackery;
     public float angle;
 
     
@@ -19,10 +20,14 @@ public class Movement : MonoBehaviour
 
     public Transform playerTransform;
     public float lastFrame;
-
+    public float lastSecondX;
+    public float lastSecondY;
+    public float time;
     public void Start()
     {
         lastFrame = playerTransform.position.x;
+        lastSecondX = playerTransform.position.x;
+        lastSecondY = playerTransform.position.y;
     }
     void Update()
     {
@@ -44,8 +49,18 @@ public class Movement : MonoBehaviour
         rb.rotation = angle;
         //Debug.Log(lastFrame);
         //Debug.Log(playerTransform.position.x);
-        speedTracker = Mathf.Abs(playerTransform.position.x - lastFrame);
-        lastFrame = playerTransform.position.x;
+        //speedTracker = Mathf.Abs(playerTransform.position.x - lastFrame);
+        //lastFrame = playerTransform.position.x;
         //Debug.Log(speedTracker);
+
+        time = time + Time.deltaTime;
+        if (time >= 1)
+        {
+            time = 0;
+            speedTrackerx = Mathf.Abs(playerTransform.position.x - lastSecondX);
+            speedTrackery = Mathf.Abs(playerTransform.position.y - lastSecondY);
+            lastSecondX = playerTransform.position.x;
+            lastSecondX = playerTransform.position.y;
+        }
     }
 }
