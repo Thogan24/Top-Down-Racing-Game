@@ -19,17 +19,17 @@ public class RecoilScript : MonoBehaviour
         if (time < 0.1)
         {
             GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
-            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
+            //Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
         }
         else if (time > 0.1 && time <= 0.7)
         {
             GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * 5);
-            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * 5);
+            //Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * 5);
         }
         else if (time > 0.7 && time < 1.5)
         {
             GetComponent<Rigidbody2D>().AddForce(shootPosition * -GetComponent<BulletShoot>().recoilForce * (1.5f - time) * 5);
-            Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
+            //Debug.Log(shootPosition * -GetComponent<BulletShoot>().recoilForce * time * 5);
         }
         else
         {
