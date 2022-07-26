@@ -5689,6 +5689,7 @@ MonoBehaviour:
   speedTrackerx: 0
   speedTrackery: 0
   angle: 0
+  GameManagerObject: {fileID: 945389198}
   player: {fileID: 781471818}
   playerTransform: {fileID: 781471820}
   lastFrame: 0
@@ -10805,6 +10806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerTextbox: {fileID: 1631605764}
   timer: 0
+  startTimer: 0
 --- !u!4 &945389200
 Transform:
   m_ObjectHideFlags: 0
@@ -11036,7 +11038,7 @@ GameObject:
   - component: {fileID: 1011248460}
   - component: {fileID: 1011248459}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11083,7 +11085,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 0.4774831, g: 0.4979085, b: 0.5471698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11529,7 +11531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11644,7 +11646,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -12079,6 +12081,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 8148083031479634023, guid: d79f3f4b6a061944586d6364012dd4a0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
     - target: {fileID: 8148083031479634023, guid: d79f3f4b6a061944586d6364012dd4a0, type: 3}
       propertyPath: m_Color.b
       value: 0

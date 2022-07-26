@@ -8,8 +8,10 @@ public class Movement : MonoBehaviour
     public float speedTrackerx;
     public float speedTrackery;
     public float angle;
+    private GameManager GameManager;
+    public GameObject GameManagerObject;
 
-    
+
     public GameObject player;
     float h;
     float s;
@@ -28,6 +30,7 @@ public class Movement : MonoBehaviour
         lastFrame = playerTransform.position.x;
         lastSecondX = playerTransform.position.x;
         lastSecondY = playerTransform.position.y;
+        GameManager = GameManagerObject.GetComponent<GameManager>();
     }
     void Update()
     {
@@ -61,6 +64,11 @@ public class Movement : MonoBehaviour
             speedTrackery = Mathf.Abs(playerTransform.position.y - lastSecondY);
             lastSecondX = playerTransform.position.x;
             lastSecondY = playerTransform.position.y;
+        }
+
+        if(speedTrackerx > 0 || speedTrackery > 0)
+        {
+            GameManager.startTimer = true;
         }
     }
 }
