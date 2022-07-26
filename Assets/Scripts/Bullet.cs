@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Debug.Log("Bruh");
+            Debug.Log(collision.gameObject);
         }
         
     }

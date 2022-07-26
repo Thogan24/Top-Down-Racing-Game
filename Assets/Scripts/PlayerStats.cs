@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
             }
         }
         StatsTextbox.text = "X Speed: " + MovementScript.speedTrackerx.ToString("F2") +
-        "<br> Y Speed: " + MovementScript.speedTrackery.ToString("F2") +
+        "<br>Y Speed: " + MovementScript.speedTrackery.ToString("F2") +
         "<br>MovementSpeed: " + MovementScript.movementSpeed.ToString() +
         "<br>Angle: " + MovementScript.angle.ToString("F2") +
         "<br>BulletForce: " + BulletShootScript.bulletForce.ToString() +       
