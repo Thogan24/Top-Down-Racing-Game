@@ -9,8 +9,6 @@ public class RecoilScript : MonoBehaviour
     {
         shootPosition = GetComponent<BulletShoot>().shootPosition;
     }
-
-    // Update is called once per frame
     void Update()
     {
         
