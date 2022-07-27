@@ -11,11 +11,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Bullet")
         {
-            Debug.Log(collision.gameObject.tag);
+            //Debug.Log(collision.gameObject.tag);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
-            Debug.Log("SDLKJHSDLJFH");
+            //Debug.Log("SDLKJHSDLJFH");
         }
         else if (collision.gameObject.tag == "Bullet")
         {
@@ -23,11 +23,11 @@ public class Bullet : MonoBehaviour
             GameObject effect = Instantiate(hitEffectBullet, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
-            Debug.Log("IT SHOULD BE PLAYING THE AFFECT");
+            //Debug.Log("IT SHOULD BE PLAYING THE AFFECT");
         }
         else
         {
-            Debug.Log(collision.gameObject);
+            //Debug.Log(collision.gameObject);
         }
         
     }
