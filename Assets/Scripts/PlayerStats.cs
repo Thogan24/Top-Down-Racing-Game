@@ -12,8 +12,12 @@ public class PlayerStats : MonoBehaviour
     private BulletShoot BulletShootScript;
     public GameObject player;
     public TextMeshProUGUI StatsTextbox;
-    
+
+    private GameManager GameManager;
+    public GameObject GameManagerObject;
+
     void Start() {
+        GameManager = GameManagerObject.GetComponent<GameManager>();
         showStats = false;
         statsCanvas.SetActive(false);
         MovementScript = player.GetComponent<Movement>();
@@ -43,6 +47,7 @@ public class PlayerStats : MonoBehaviour
         "<br>Angle: " + MovementScript.angle.ToString("F2") +
         "<br>BulletForce: " + BulletShootScript.bulletForce.ToString() +       
         "<br>Cooldown: " + BulletShootScript.cooldown.ToString() +
+        "<br>Timer: " + GameManager.startTimer.ToString() +
         "<br>Coordinates: <br>" + MovementScript.playerTransform.position.x + ", " + MovementScript.playerTransform.position.y;
 
 

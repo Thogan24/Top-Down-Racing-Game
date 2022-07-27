@@ -5691,6 +5691,7 @@ MonoBehaviour:
   speedTrackery: 0
   angle: 0
   GameManagerObject: {fileID: 945389198}
+  firstMovement: 0
   player: {fileID: 781471818}
   playerTransform: {fileID: 781471820}
   lastFrame: 0
@@ -5749,6 +5750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511172edd2878d8429c8ea9c7e170128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManagerObject: {fileID: 945389198}
 --- !u!1 &898907318
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,6 +11043,7 @@ MonoBehaviour:
   statsCanvas: {fileID: 680962290}
   player: {fileID: 781471818}
   StatsTextbox: {fileID: 1433238654}
+  GameManagerObject: {fileID: 945389198}
 --- !u!1 &1011248458
 GameObject:
   m_ObjectHideFlags: 0

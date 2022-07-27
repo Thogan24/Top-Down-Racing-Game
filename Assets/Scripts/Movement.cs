@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public float angle;
     private GameManager GameManager;
     public GameObject GameManagerObject;
+    public bool firstMovement = false;
 
 
     public GameObject player;
@@ -66,9 +67,10 @@ public class Movement : MonoBehaviour
             lastSecondY = playerTransform.position.y;
         }
 
-        if(speedTrackerx > 0 || speedTrackery > 0)
+        if((speedTrackerx > 0 || speedTrackery > 0) && firstMovement == false)
         {
             GameManager.startTimer = true;
+            firstMovement = true;
         }
     }
 }
