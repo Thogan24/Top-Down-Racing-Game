@@ -956,7 +956,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.76282936, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10820,8 +10820,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerTextbox: {fileID: 1631605764}
+  TimerObject: {fileID: 1631605762}
   timer: 0
   startTimer: 0
+  showTimer: 0
   finishLine: {fileID: 0}
 --- !u!4 &945389200
 Transform:
@@ -11060,7 +11062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1011248459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11080,7 +11082,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 181441fa15b593d44bced38780a4c4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
