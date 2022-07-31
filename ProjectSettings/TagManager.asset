@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Finish Line
+  - LevelEditorManager
+  - MapMakerManager
   layers:
   - Default
   - TransparentFX
