@@ -19,7 +19,7 @@ public class ItemController : MonoBehaviour
         
         Clicked = true;
         Instantiate(mapMaker.ItemImage[ID], new Vector3(worldPosition.x, worldPosition.y, 0), Quaternion.identity);
-        Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
+        
         quantity++;
         mapMaker.CurrentButtonPressed = ID;
     }

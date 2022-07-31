@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3625160398502113317}
   - component: {fileID: 278357557049922903}
   - component: {fileID: 141251829075419219}
+  - component: {fileID: 8994213620002830081}
   m_Layer: 0
   m_Name: SquareImage
-  m_TagString: Untagged
+  m_TagString: ItemImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,5 +94,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1381c161122aba4f8af3f26fedae484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8994213620002830081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133869948681775886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a40baa24321214a8176ffdc5fd0891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -16,6 +16,7 @@ public class MapMakerScript : MonoBehaviour
         {
             ItemButtons[CurrentButtonPressed].Clicked = false;
             Instantiate(ItemPrefabs[CurrentButtonPressed], new Vector3(worldPosition.x, worldPosition.y,0), Quaternion.identity);
+            Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
         }
     }
 }
