@@ -4,6 +4,7 @@ public class MapMakerScript : MonoBehaviour
 {
     public ItemController[] ItemButtons;
     public GameObject[] ItemPrefabs;
+    public GameObject[] ItemImage;
     public int CurrentButtonPressed;
 
     void Update()
