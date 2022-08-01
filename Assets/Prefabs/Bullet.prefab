@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bd2509822740048bc54bf326d5ca5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 0}
-  hitEffectBullet: {fileID: 0}
+  hitEffect: {fileID: 6434531981834337283, guid: 7cf6c541715856743882cf5b7e50e19e, type: 3}
+  hitEffectBullet: {fileID: 5459567774319672013, guid: 0298cc37195540d478cf823e80b3c52a, type: 3}
   time: 0
