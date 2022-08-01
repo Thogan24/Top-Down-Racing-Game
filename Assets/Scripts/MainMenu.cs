@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,8 +12,12 @@ public class MainMenu : MonoBehaviour
     public GameObject MainMenuPanel;
     public GameObject InventoryPanel;
     public bool isInventoryOpen = false;
+    public TextMeshProUGUI CoinsTextbox;
 
-
+    private void Start()
+    {
+        
+    }
     public void Update()
     {
         if (Input.GetKey(KeyCode.Escape) && isInventoryOpen == true)
@@ -43,11 +49,22 @@ public class MainMenu : MonoBehaviour
         isInventoryOpen = false;
     }
 
+    public void FreeCoin()
+    {
+        SaveData.current.profile.playerCoins += 1;
+        CoinsTextbox.text = "Coins: " + SaveData.current.profile.playerCoins;
+    }
+
     public void QuitGame()
     {
 
         Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+    public void OnLoadGame()
+    {
+        SaveData.current = (SaveData)SerializationManager.Load(Application.persistentDataPath + "/saves/Save.save");
     }
 
     
