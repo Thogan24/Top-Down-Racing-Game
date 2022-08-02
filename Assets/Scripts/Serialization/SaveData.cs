@@ -9,6 +9,7 @@ public class SaveData : MonoBehaviour
     public static SaveData _current;
     public static SaveData current
     {
+        
         get
         {
             if (_current == null)
@@ -24,6 +25,8 @@ public class SaveData : MonoBehaviour
                 _current = value;
             }
         }
+
+        
     }
 
     public PlayerProfile profile;
