@@ -7,11 +7,14 @@ public class Movement : MonoBehaviour
     public Camera cam;
     public float speedTrackerx;
     public float speedTrackery;
+    public float speedTrackerTotal;
     public float angle;
     private GameManager GameManager;
     public GameObject GameManagerObject;
     public bool firstMovement = false;
 
+    public Transform lastFrameTransform;
+    public GameObject playerPrefab;
 
     public GameObject player;
     float h;
@@ -32,6 +35,8 @@ public class Movement : MonoBehaviour
         lastSecondX = playerTransform.position.x;
         lastSecondY = playerTransform.position.y;
         GameManager = GameManagerObject.GetComponent<GameManager>();
+
+        lastFrameTransform = transform;
     }
     void Update()
     {
@@ -63,6 +68,7 @@ public class Movement : MonoBehaviour
             time = 0;
             speedTrackerx = Mathf.Abs(playerTransform.position.x - lastSecondX);
             speedTrackery = Mathf.Abs(playerTransform.position.y - lastSecondY);
+            speedTrackerTotal = speedTrackerx + speedTrackery;
             lastSecondX = playerTransform.position.x;
             lastSecondY = playerTransform.position.y;
         }
@@ -71,6 +77,14 @@ public class Movement : MonoBehaviour
         {
             GameManager.startTimer = true;
             firstMovement = true;
+        }
+
+        if (speedTrackerTotal > 50)
+        {
+            GameObject newPlayerPrefab = Instantiate(playerPrefab, lastFrameTransform);
+            Destroy(newPlayerPrefab, 0.05f);
+            lastFrameTransform = transform;
+            newPlayerPrefab.transform.parent = null;
         }
     }
 }

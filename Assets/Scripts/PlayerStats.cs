@@ -41,7 +41,8 @@ public class PlayerStats : MonoBehaviour
                 showStats = false;
             }
         }
-        StatsTextbox.text = "X Speed: " + MovementScript.speedTrackerx.ToString("F2") +
+        StatsTextbox.text = "<br>Total Speed: " + MovementScript.speedTrackerTotal.ToString("F2") + 
+        "<br>X Speed: " + MovementScript.speedTrackerx.ToString("F2") +
         "<br>Y Speed: " + MovementScript.speedTrackery.ToString("F2") +
         "<br>MovementSpeed: " + MovementScript.movementSpeed.ToString() +
         "<br>Angle: " + MovementScript.angle.ToString("F2") +
