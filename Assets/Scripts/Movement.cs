@@ -71,7 +71,15 @@ public class Movement : MonoBehaviour
             firstMovement = true;
         }
 
-        if (speedTrackerTotal > 0)
+        /*time = time + Time.deltaTime;
+        if (time >= 1)
+        {
+            time = 0;
+            
+        }*/
+
+
+        if (speedTrackerTotal > 3)
         {
             GameObject newPlayerPrefab = Instantiate(playerPrefab, transform.position, transform.rotation);
             fadeIntensity = (transform.position - newPlayerPrefab.transform.position).magnitude;
@@ -81,7 +89,7 @@ public class Movement : MonoBehaviour
             newPlayerPrefab.GetComponent<SpriteRenderer>().color = color;
             
 
-            Destroy(newPlayerPrefab, 0.02f + (speedTrackerTotal * 0.01f)); //If its above 100 change slow down increasing
+            Destroy(newPlayerPrefab, 0.02f + ((speedTrackerTotal-2) * 0.01f)); //If its above 100 change slow down increasing
             
             newPlayerPrefab.transform.parent = null;
         }
