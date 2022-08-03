@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     public float lastSecondX;
     public float lastSecondY;
     public float time;
-
+    public float fadeIntensity;
     
     public void Start()
     {
@@ -74,8 +74,10 @@ public class Movement : MonoBehaviour
         if (speedTrackerTotal > 0)
         {
             GameObject newPlayerPrefab = Instantiate(playerPrefab, transform.position, transform.rotation);
+            fadeIntensity = (transform.position - newPlayerPrefab.transform.position).magnitude;
+            Debug.Log(fadeIntensity);
             Color color = GetComponent<SpriteRenderer>().color;
-            color.a = 0.15f;
+            color.a = 0.15f * (5-fadeIntensity);
             newPlayerPrefab.GetComponent<SpriteRenderer>().color = color;
             
 
@@ -97,10 +99,6 @@ public class Movement : MonoBehaviour
         speedTrackery = Mathf.Abs(transform.position.y - lastFrameTransform.y) * Time.deltaTime * 100;
         /*lastSecondX = playerTransform.position.x;
         lastSecondY = playerTransform.position.y;*/
-
-        Debug.Log(speedTrackerTotal);
-        Debug.Log(lastFrameTransform);
-        Debug.Log(transform.position);
         lastFrameTransform = transform.position;
     }
 }
