@@ -55,5 +55,7 @@ public class BulletShoot : MonoBehaviour
         
         this.gameObject.AddComponent<RecoilScript>();
         cooldown = true;
+
+        Destroy(bullet, 2f);
     }
 }

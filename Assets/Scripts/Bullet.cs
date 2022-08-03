@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
-            //Debug.Log("SDLKJHSDLJFH");
+            
         }
         else if (collision.gameObject.tag == "Bullet")
         {
@@ -23,20 +23,8 @@ public class Bullet : MonoBehaviour
             GameObject effect = Instantiate(hitEffectBullet, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
             Destroy(gameObject);
-            //Debug.Log("IT SHOULD BE PLAYING THE AFFECT");
-        }
-        else
-        {
-            //Debug.Log(collision.gameObject);
+            
         }
         
-    }
-    private void Update()
-    {
-        time = time + Time.deltaTime * 1;
-        if (time > 5)
-        {
-            //Destroy the object
-        }
     }
 }
