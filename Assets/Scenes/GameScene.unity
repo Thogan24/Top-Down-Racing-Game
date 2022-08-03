@@ -748,6 +748,7 @@ MonoBehaviour:
   cam: {fileID: 907464091}
   speedTrackerx: 0
   speedTrackery: 0
+  speedTrackerTotal: 0
   angle: 0
   GameManagerObject: {fileID: 945389198}
   firstMovement: 0

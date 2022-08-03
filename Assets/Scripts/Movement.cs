@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public GameObject GameManagerObject;
     public bool firstMovement = false;
 
-    public Transform lastFrameTransform;
+    public Vector3 lastFrameTransform;
     public GameObject playerPrefab;
 
     public GameObject player;
@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
     public float lastSecondX;
     public float lastSecondY;
     public float time;
+
+    
     public void Start()
     {
         lastFrame = playerTransform.position.x;
@@ -36,7 +38,7 @@ public class Movement : MonoBehaviour
         lastSecondY = playerTransform.position.y;
         GameManager = GameManagerObject.GetComponent<GameManager>();
 
-        lastFrameTransform = transform;
+        lastFrameTransform = transform.position;
     }
     void Update()
     {
@@ -47,6 +49,7 @@ public class Movement : MonoBehaviour
 
         Color.RGBToHSV(player.GetComponent<SpriteRenderer>().color, out h, out s, out v);
         player.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(h + Time.deltaTime * .25f, s, v);
+        
     }
 
     void FixedUpdate()
@@ -62,29 +65,42 @@ public class Movement : MonoBehaviour
         //lastFrame = playerTransform.position.x;
         //Debug.Log(speedTracker);
 
-        time = time + Time.deltaTime;
-        if (time >= 1)
-        {
-            time = 0;
-            speedTrackerx = Mathf.Abs(playerTransform.position.x - lastSecondX);
-            speedTrackery = Mathf.Abs(playerTransform.position.y - lastSecondY);
-            speedTrackerTotal = speedTrackerx + speedTrackery;
-            lastSecondX = playerTransform.position.x;
-            lastSecondY = playerTransform.position.y;
-        }
-
         if((speedTrackerx > 0 || speedTrackery > 0) && firstMovement == false)
         {
             GameManager.startTimer = true;
             firstMovement = true;
         }
 
-        if (speedTrackerTotal > 50)
+        if (speedTrackerTotal > 0)
+        {
+            GameObject newPlayerPrefab = Instantiate(playerPrefab, transform.position, transform.rotation);
+            Color color = GetComponent<SpriteRenderer>().color;
+            color.a = 0.15f;
+            newPlayerPrefab.GetComponent<SpriteRenderer>().color = color;
+            
+
+            Destroy(newPlayerPrefab, 0.02f + (speedTrackerTotal * 0.01f)); //If its above 100 change slow down increasing
+            
+            newPlayerPrefab.transform.parent = null;
+        }
+        /*if (speedTrackerTotal > 100)
         {
             GameObject newPlayerPrefab = Instantiate(playerPrefab, lastFrameTransform);
             Destroy(newPlayerPrefab, 0.05f);
             lastFrameTransform = transform;
             newPlayerPrefab.transform.parent = null;
-        }
+        }*/
+
+
+        speedTrackerTotal = (transform.position - lastFrameTransform).magnitude * Time.deltaTime * 100;
+        speedTrackerx = Mathf.Abs(transform.position.x - lastFrameTransform.x) * Time.deltaTime * 100;
+        speedTrackery = Mathf.Abs(transform.position.y - lastFrameTransform.y) * Time.deltaTime * 100;
+        /*lastSecondX = playerTransform.position.x;
+        lastSecondY = playerTransform.position.y;*/
+
+        Debug.Log(speedTrackerTotal);
+        Debug.Log(lastFrameTransform);
+        Debug.Log(transform.position);
+        lastFrameTransform = transform.position;
     }
 }
