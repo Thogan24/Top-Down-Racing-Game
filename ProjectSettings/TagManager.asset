@@ -9,6 +9,7 @@ TagManager:
   - LevelEditorManager
   - MapMakerManager
   - ItemImage
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
