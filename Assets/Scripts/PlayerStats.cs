@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject statsCanvas;
     private Movement MovementScript;
     private BulletShoot BulletShootScript;
+    private CameraZoomScript CameraZoomScript;
     public GameObject player;
     public TextMeshProUGUI StatsTextbox;
 
@@ -18,6 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     void Start() {
         GameManager = GameManagerObject.GetComponent<GameManager>();
+        CameraZoomScript = GameObject.FindGameObjectWithTag("Camera").GetComponent<CameraZoomScript>();
         showStats = false;
         statsCanvas.SetActive(false);
         MovementScript = player.GetComponent<Movement>();
@@ -44,9 +46,9 @@ public class PlayerStats : MonoBehaviour
         StatsTextbox.text = "<br>Total Speed: " + MovementScript.speedTrackerTotal.ToString("F2") + 
         "<br>X Speed: " + MovementScript.speedTrackerx.ToString("F2") +
         "<br>Y Speed: " + MovementScript.speedTrackery.ToString("F2") +
-        "<br>MovementSpeed: " + MovementScript.movementSpeed.ToString() +
+        "<br>Movement Speed: " + MovementScript.movementSpeed.ToString() +
         "<br>Angle: " + MovementScript.angle.ToString("F2") +
-        "<br>BulletForce: " + BulletShootScript.bulletForce.ToString() +       
+        "<br>Camera Zoom: " + CameraZoomScript.zoomAmount.ToString("F2") +       
         "<br>Cooldown: " + BulletShootScript.cooldown.ToString() +
         "<br>Timer: " + GameManager.startTimer.ToString() +
         "<br>Coordinates: <br>" + MovementScript.playerTransform.position.x + ", " + MovementScript.playerTransform.position.y;
