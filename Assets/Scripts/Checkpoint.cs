@@ -19,12 +19,7 @@ public class Checkpoint : MonoBehaviour
             checkpointCompleted = true;
             finishLineScript.checkpointsNeedToBeCompleted = false;
         }
-        else if (collider.tag == "Player" && checkpointCompleted == true)
-        {
-            Debug.Log("AKLDJSHSAKDHJ");
-            checkpointCompleted = true;
-            finishLineScript.checkpointsNeedToBeCompleted = false;
-        }
+
 
     }
 

@@ -15,6 +15,8 @@ public class FinishLine : MonoBehaviour
         {
             Debug.Log("worked");
             GameManager.startTimer = false;
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
 
         }
         else if (collider2D.tag == "Player" && checkpointsNeedToBeCompleted == true)
