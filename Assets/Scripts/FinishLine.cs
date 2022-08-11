@@ -4,10 +4,12 @@ public class FinishLine : MonoBehaviour
 {
     private GameManager GameManager;
     public GameObject GameManagerObject;
+    private BulletShoot bulletShoot;
     public bool checkpointsNeedToBeCompleted = true;
     private void Start()
     {
         GameManager = GameManagerObject.GetComponent<GameManager>();
+        bulletShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<BulletShoot>();
     }
     public void OnTriggerEnter2D(Collider2D collider2D)
     {
@@ -17,6 +19,7 @@ public class FinishLine : MonoBehaviour
             GameManager.startTimer = false;
             Time.timeScale = 0.5f;
             Time.fixedDeltaTime = Time.timeScale * .02f;
+            bulletShoot.canShoot = false;
 
         }
         else if (collider2D.tag == "Player" && checkpointsNeedToBeCompleted == true)

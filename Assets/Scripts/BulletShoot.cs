@@ -17,6 +17,7 @@ public class BulletShoot : MonoBehaviour
     public bool recoil = false;
     public bool cooldown = false;
     public float cooldownTime;
+    public bool canShoot = true;
 
     
     private void Start()
@@ -35,7 +36,7 @@ public class BulletShoot : MonoBehaviour
             cooldown = false;
             cooldownTime = 0;
         }
-        if (Input.GetMouseButtonDown(0) && cooldown == false)
+        if (Input.GetMouseButtonDown(0) && cooldown == false && canShoot == true)
         {            
             Shoot();
         }
