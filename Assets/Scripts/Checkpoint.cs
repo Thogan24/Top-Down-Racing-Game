@@ -8,12 +8,18 @@ public class Checkpoint : MonoBehaviour
 
     void Start()
     {
-        finishLineScript = GameObject.FindGameObjectWithTag("Player").GetComponent<FinishLine>();
+        finishLineScript = GameObject.FindGameObjectWithTag("Finish Line").GetComponent<FinishLine>();
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "Player" && checkpointCompleted == false)
+        {
+            Debug.Log("AKLDJSHSAKDHJ");
+            checkpointCompleted = true;
+            finishLineScript.checkpointsNeedToBeCompleted = false;
+        }
+        else if (collider.tag == "Player" && checkpointCompleted == true)
         {
             Debug.Log("AKLDJSHSAKDHJ");
             checkpointCompleted = true;

@@ -9,14 +9,19 @@ public class FinishLine : MonoBehaviour
     {
         GameManager = GameManagerObject.GetComponent<GameManager>();
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collision.gameObject.tag == "Finish Line" && checkpointsNeedToBeCompleted == false)
+        if (collider2D.tag == "Player" && checkpointsNeedToBeCompleted == false)
         {
             Debug.Log("worked");
             GameManager.startTimer = false;
 
         }
-        //Debug.Log("w");
+        else if (collider2D.tag == "Player" && checkpointsNeedToBeCompleted == true)
+        {
+            Debug.Log("Complete checkpoints first");
+
+        }
+
     }
 }
