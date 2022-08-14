@@ -1,14 +1,17 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI TimerTextbox;
+    public GameObject CongratulationsTextbox;
     public GameObject TimerObject;
     public float timer;
     public bool startTimer;
     public bool showTimer;
     public GameObject finishLine;
+    bool gameHasEnded;
     //public TextMeshProUGUI Timer;
 
     void Update()
@@ -34,5 +37,20 @@ public class GameManager : MonoBehaviour
                 TimerObject.SetActive(false);
             }
         }
+    }
+
+    public void EndGame()
+    {
+        gameHasEnded = true;
+        Debug.Log("worked");
+        startTimer = false;
+        Time.timeScale = 0.5f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+        CongratulationsTextbox.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
