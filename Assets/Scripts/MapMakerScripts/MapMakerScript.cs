@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class MapMakerScript : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class MapMakerScript : MonoBehaviour
     public GameObject[] ItemPrefabs;
     public GameObject[] ItemImage;
     public int CurrentButtonPressed;
+    public CinemachineVirtualCamera camera;
 
     void Update()
     {
