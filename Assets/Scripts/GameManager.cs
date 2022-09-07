@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
                 TimerObject.SetActive(false);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) == true) //&& Input.GetKeyDown(KeyCode.R) == true
+        {
+            Debug.Log("Bruh");
+            Restart();
+        }
     }
 
     public void EndGame()
@@ -51,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
